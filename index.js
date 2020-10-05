@@ -1,5 +1,6 @@
 const express = require('express');
-const anonlytics = require('anonlytics-express');
+const path = require('path');
+const anonlytics = require('@aarondewes/anonlytics-express');
 const nunjucks = require('nunjucks');
 const compression = require('compression');
 const nunjucksFilters = require('./lib/nunjucks-filters');
@@ -36,8 +37,10 @@ app.get('/about', controllers.about);
 app.get('/no-connection', controllers.noConnection);
 
 // Serve assets with cache headers
-app.use('/sw.js', express.static(`${__dirname}/public/sw.js`, { maxAge: '1 hour' }));
-app.use(express.static(`${__dirname}/public`, { maxAge: '1 year' }));
+const path0 = path.join(__dirname, '/public/sw.js');
+const path1 = path.join(__dirname, '/public');
+app.use('/sw.js', express.static(path0, { maxAge: '1 hour' }));
+app.use(express.static(path1, { maxAge: '1 year' }));
 
 // Errors
 app.use(controllers.error404);

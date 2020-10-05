@@ -121,6 +121,10 @@ h1 {
 .menu-button .heart {
   fill: #b24592;
   transition: fill 0.2s ease;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
 }
 .menu-button:hover .heart {
   fill: #f15f79;
@@ -618,4 +622,26 @@ footer {
 }
 .icon-valid:before {
   content: "\e90a";
+}
+
+.fakelink {
+  border: 0;
+  padding: initial;
+  background: transparent;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.menu button {
+  display: block;
+  padding: 0.4em 0.7em;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background 0.2s ease;
+  width: 100%;
+}
+.menu button:hover {
+  background: rgba(0, 0, 0, 0.1);
 }
